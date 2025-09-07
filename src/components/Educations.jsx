@@ -7,40 +7,29 @@ export default function Education() {
     {
       id: 1,
       degree: "Bachelor of Computer Science",
-      institution: "University of Technology",
-      period: "2020 - 2024",
+      institution: "Noida Institute of Engineering and Technology",
+      period: "2024 - Current",
       description:
-        "Graduated with honors. Specialized in Software Engineering and Artificial Intelligence.",
+        "Pursuing my degree with a mix of theory and practice — lectures, labs, and projects that are shaping my understanding of computer science fundamentals. Beyond academics, college has been a space where I’ve learned teamwork, managing deadlines, and adapting to challenges, all while sharpening my focus on frontend development and software engineering.",
       icon: GraduationCap,
-      achievements: [
-        "Summa Cum Laude",
-        "Dean's List 4 semesters",
-        "Computer Science Award",
-      ],
     },
     {
       id: 2,
-      degree: "Full Stack Web Development",
-      institution: "Tech Academy Bootcamp",
-      period: "2023",
+      degree: "Frontend Development",
+      institution: "The Midnight Learning Academy",
+      period: "2024-∞",
       description:
-        "Intensive 12-week program covering modern web development technologies and best practices.",
+        "An unaccredited but highly intensive program where I mastered the art of breaking code all day and fixing it all night. Curriculum included battling mysterious bugs, deciphering cryptic error messages, and learning frontend development from countless tutorials, docs, and late-night coding marathons.",
       icon: BookOpen,
-      achievements: [
-        "Top 5% of cohort",
-        "Capstone project winner",
-        "Peer mentor",
-      ],
     },
     {
       id: 3,
-      degree: "AWS Certified Developer",
-      institution: "Amazon Web Services",
-      period: "2024",
+      degree: "Programming Fundamentals",
+      institution: "College Curriculum & Self-Learning",
+      period: "2023 - Present",
       description:
-        "Professional certification in cloud development and deployment using AWS services.",
+        "Gained a strong foundation in programming through languages like C, Java, and Python. Learned problem-solving, basic data structures, and algorithms, which laid the groundwork for building efficient applications and understanding core computer science concepts.",
       icon: Award,
-      achievements: ["Associate level", "Valid until 2027", "Score: 890/1000"],
     },
   ];
 
@@ -115,7 +104,7 @@ export default function Education() {
                           {item.description}
                         </p>
 
-                        <div className="space-y-2">
+                        {/* <div className="space-y-2">
                           <h4 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">
                             Key Achievements
                           </h4>
@@ -130,7 +119,7 @@ export default function Education() {
                               </motion.span>
                             ))}
                           </div>
-                        </div>
+                        </div> */}
                       </div>
                     </div>
                   </motion.div>
