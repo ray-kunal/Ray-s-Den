@@ -6,37 +6,61 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
-      title: "E-Commerce Platform",
+      title: "Movie Site",
       description:
-        "A full-stack e-commerce solution built with React, Node.js, and MongoDB. Features include user authentication, payment integration, and admin dashboard.",
+        "A movie streaming platform built with React. Features include dynamic content loading, search functionality, and trailer playback using TMDB API.",
       image:
-        "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80",
-      technologies: ["React", "Node.js", "MongoDB", "Stripe", "Tailwind CSS"],
+        "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=800&q=80",
+      technologies: [
+        "React",
+        "JavaScript",
+        "Tailwind CSS",
+        "REST API",
+        "Firebase",
+      ],
       icon: Code,
       github: "#",
       demo: "#",
     },
     {
       id: 2,
-      title: "Design System",
+      title: "E-Commerce Store",
       description:
-        "A comprehensive design system with reusable components, built with React and Storybook. Includes documentation and accessibility guidelines.",
+        "A modern e-commerce website with cart functionality, product filtering, and Stripe payment integration. Built using Next.js and Redux.",
       image:
-        "https://images.unsplash.com/photo-1541462608143-67571c6738dd?w=800&q=80",
-      technologies: ["React", "Storybook", "TypeScript", "Sass", "Figma"],
+        "https://images.unsplash.com/photo-1607082349566-187342175e2f?w=800&q=80",
+      technologies: ["Next.js", "React", "Redux", "Tailwind CSS", "Stripe"],
       icon: Palette,
       github: "#",
       demo: "#",
     },
     {
       id: 3,
-      title: "Real-time Chat App",
+      title: "Advanced Todo App",
       description:
-        "A modern chat application with real-time messaging, file sharing, and group conversations. Built with React and Socket.io.",
+        "A feature-rich todo application with drag-and-drop, categories, and local storage. Implements React Context for state management.",
       image:
-        "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=800&q=80",
-      technologies: ["React", "Socket.io", "Express", "PostgreSQL", "Redis"],
+        "https://images.unsplash.com/photo-1540350394557-8d14678e7f91?w=800&q=80",
+      technologies: [
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Context API",
+        "DND Kit",
+      ],
       icon: Zap,
+      github: "#",
+      demo: "#",
+    },
+    {
+      id: 4,
+      title: "Tic Tac Toe Game",
+      description:
+        "An interactive Tic Tac Toe game with multiplayer support, move history, and AI opponent using minimax algorithm.",
+      image:
+        "https://images.unsplash.com/photo-1611996575749-79a3a250f948?w=800&q=80",
+      technologies: ["React", "JavaScript", "CSS3", "Socket.io", "AI Logic"],
+      icon: Code,
       github: "#",
       demo: "#",
     },
@@ -58,7 +82,7 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="py-20 px-6 bg-slate-800/50">
+    <section id="projects" className="py-20 px-6 bg-slate-900/90">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           className="text-center mb-16"
@@ -69,7 +93,7 @@ export default function Projects() {
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Featured{" "}
-            <span className="bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
               Projects
             </span>
           </h2>
@@ -80,7 +104,7 @@ export default function Projects() {
         </motion.div>
 
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8"
           variants={container}
           initial="hidden"
           whileInView="visible"
@@ -88,58 +112,62 @@ export default function Projects() {
         >
           {projects.map((project) => (
             <motion.div key={project.id} variants={item}>
-              <div className="bg-slate-900/80 border border-slate-700 hover:border-slate-600 transition-all duration-300 overflow-hidden group h-full rounded-xl shadow">
-                <div className="relative overflow-hidden">
+              <div className="relative group bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 hover:border-cyan-500/50 transition-all duration-500 overflow-hidden rounded-xl shadow-lg hover:shadow-cyan-500/10">
+                <div className="relative overflow-hidden aspect-video">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent" />
-                  <div className="absolute top-4 right-4">
-                    <div className="w-10 h-10 bg-slate-900/80 rounded-full flex items-center justify-center">
-                      <project.icon className="w-5 h-5 text-blue-400" />
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-transparent via-slate-900/80 to-slate-900 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                    <div className="absolute inset-0 p-6 flex flex-col justify-end transform translate-y-6 group-hover:translate-y-0 transition-transform duration-500">
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        {project.description}
+                      </p>
                     </div>
                   </div>
                 </div>
 
                 <div className="p-6">
-                  <h3 className="text-xl font-bold text-white mb-3">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-300 mb-4 text-sm leading-relaxed">
-                    {project.description}
-                  </p>
+                  <div className="flex items-center justify-between mb-4">
+                    <h3 className="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors duration-300">
+                      {project.title}
+                    </h3>
+                    <div className="w-10 h-10 bg-slate-700/50 rounded-full flex items-center justify-center">
+                      <project.icon className="w-5 h-5 text-cyan-400" />
+                    </div>
+                  </div>
 
                   <div className="flex flex-wrap gap-2 mb-6">
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="bg-slate-700 text-gray-300 text-xs px-2 py-1 rounded-full"
+                        className="bg-slate-700/50 text-cyan-300 text-xs px-3 py-1 rounded-full border border-slate-600/50"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
 
-                  <div className="flex gap-3">
+                  <div className="flex gap-4">
                     <motion.a
                       href={project.github}
-                      className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-300"
+                      className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors duration-300"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <Github className="w-4 h-4" />
-                      <span className="text-sm">Code</span>
+                      <span className="text-sm font-medium">View Code</span>
                     </motion.a>
                     <motion.a
                       href={project.demo}
-                      className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors duration-300"
+                      className="flex items-center gap-2 text-gray-400 hover:text-cyan-400 transition-colors duration-300"
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                     >
                       <ExternalLink className="w-4 h-4" />
-                      <span className="text-sm">Demo</span>
+                      <span className="text-sm font-medium">Live Demo</span>
                     </motion.a>
                   </div>
                 </div>
